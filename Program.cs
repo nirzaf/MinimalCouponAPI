@@ -22,6 +22,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/hello-world", () => "Hello World!").WithOpenApi();
+app.MapGet("/{id}", (int id) => Results.Ok($"You have entered! {id}"))
+    .WithName("GetHelloWorld")
+    .WithOpenApi();
+
+
 
 app.Run();
